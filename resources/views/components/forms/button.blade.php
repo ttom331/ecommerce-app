@@ -1,0 +1,2 @@
+@props(['padding' => 'py-2 px-6', 'radius' => 'rounded'])
+<button {{ $attributes->merge(['class' => "bg-[#121212] rounded border-6 border-[#121212] hover:py-3 transition-all duration-200 cursor-pointer"]) }}>{{ $slot }}</button>

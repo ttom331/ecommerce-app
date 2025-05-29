@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@source "../views";
+
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@layer base {
+    :root {
+        --color-black: #060606;
+        --color1: #1D7874;
+    }
+    .text-4xs {
+        font-size: 0.425rem;
+    }
+    .text-3xs {
+        font-size: 0.525rem;
+    }
+    .text-2xs {
+        font-size: 0.625rem;
+    }
+    .text-1xs {
+        font-size: 0.725rem;
+    }
+
+    .text-m {
+        font-size: 1.125rem;
+    }
+    body {
+        font-family: "Questrial", sans-serif;
+        overflow-x: hidden;
+    }
+}
