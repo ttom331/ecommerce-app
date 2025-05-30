@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(SubCategory::class);
             $table->string('name');
             $table->decimal('price', total: 8, places: 2);
             $table->decimal('dealPrice', total: 8, places: 2)->nullable();

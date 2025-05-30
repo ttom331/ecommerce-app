@@ -12,8 +12,8 @@
         <x-heading>Featured Products</x-heading>
         <div class="px-2 sm:px-4 md:px-0 pb-10">
             <div class="mt-5 grid grid-cols-2 md:grid-cols-4 pb-2 gap-1">
-                @foreach ($featuredProducts as $featuredProduct)
-                <x-product-card :featuredProduct="$featuredProduct" />
+                @foreach ($featuredProducts as $product)
+                <x-product-card :product="$product" />
                 @endforeach
             </div>
         </div>
