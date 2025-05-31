@@ -9,7 +9,7 @@
         </div>
         <hr class="text-gray-300">
     </div>
-    <div class="mx-auto max-w-[950px]">
+    <div class="mx-auto max-w-[1440px]">
         <div class="flex justify-center space-x-12 md:justify-between md:space-x-0 md:px-5">
             <div class="text-sm">
                 {{ Breadcrumbs::render('subcategory.show', ucfirst($category->name), $subcat->name) }}

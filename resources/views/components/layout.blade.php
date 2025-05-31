@@ -11,11 +11,11 @@
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 
-<body>
+<body class="bg-[#f5f5f5]">
     <div class="">
-        <nav class="flex justify-between items-center py-3 px-8 relative">
+        <nav class="flex justify-between items-center py-5 px-4 md:px-12 fixed top-0 left-0 w-full z-1000 bg-white shadow">
             <div class="font-bold text-xl">
-                <a href="/" class="hidden md:block">
+                <a href="/" class="hidden md:block text-3xl">
                     <h1>InSofa</h1>
                 </a>
                 <a id="menu-button" class="md:hidden cursor-pointer">
@@ -26,7 +26,7 @@
             </div>
 
             <div>
-                <div class="space-x-10 hidden md:flex text-xs">
+                <div class="space-x-10 hidden md:flex text-sm uppercase font-extrabold">
                     <a href="/">Furniture</a>
                     <a href="/">Shop</a>
                     <a href="/">About Us</a>
@@ -75,7 +75,7 @@
             </div>
         </nav>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 text-2xs transition-all duration-500 ease-in-out">
+    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 text-2xs transition-all duration-500 ease-in-out mt-12 fixed bg-white z-10001 w-full">
         <ul>
             <li class="border-t-1 border-gray-300 py-2 px-10 font-extrabold"><a href="/">InSofa</a></li>
             <li class="border-y-1 border-gray-200 py-2 px-10"><a href="/">Furniture</a></li>
@@ -84,7 +84,7 @@
             <li class="border-b-1 border-gray-200 px-10 py-2"><a href="/">Contact</a></li>
         </ul>
     </div>
-    <main>
+    <main class="pt-15 px-2">
         {{ $slot }}
     </main>
 

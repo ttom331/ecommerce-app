@@ -25,7 +25,8 @@ class ProductFactory extends Factory
             'category_id' => Category::factory(),        
             'price' => fake()->randomFloat(2, 50, 1000),
             'description' => fake()->sentence(15),
-            'image' => 'http://ecommerce-app.test/storage/images/products/widesofa.png',
+            'image' => 'http://ecommerce-app.test/storage/images/products/sofa1.png',
+            'image2' => 'http://ecommerce-app.test/storage/images/products/sofa2.jpg',
             'featured' => fake()->boolean(50),
         ];
     }

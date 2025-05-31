@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('dealPrice', total: 8, places: 2)->nullable();
             $table->string('description');
             $table->string('image');
+            $table->string('image2');
             $table->boolean('featured')->default(false);
             $table->timestamps();
         });

@@ -36,15 +36,15 @@ class ProductSeeder extends Seeder
                 'sub_category_id' => 5
             ],
             [
-                'category_id' => 4,
+                'category_id' => 3,
                 'sub_category_id' => 6
             ],
             [
-                'category_id' => 5,
+                'category_id' => 4,
                 'sub_category_id' => 7
             ],
             [
-                'category_id' => 6,
+                'category_id' => 4,
                 'sub_category_id' => 8
             ]
 

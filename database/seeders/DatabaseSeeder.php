@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\User;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategorySeeder::class);
         $this->call(SubCategorySeeder::class);
+        $this->call(ColorSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(RoleSeeder::class);
 
