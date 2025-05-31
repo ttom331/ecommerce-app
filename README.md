@@ -1,3 +1,31 @@
+
+So far:
+
+✅ Implemented user signup and login functionality from scratch.
+
+✅ Created database migrations for Products, Colors, Categories, Subcategories, and Roles.
+
+✅ Set up pivot tables for many-to-many relationships:
+
+Users ↔️ Roles (admin and customer roles)
+
+Products ↔️ Colors
+
+✅ Established relationships:
+
+Products → Categories
+
+Categories → Subcategories
+
+✅ Built a Category page:
+
+View all products under a selected category
+
+Search through categories and subcategories
+
+Display products in a subcategory using Eloquent relationships
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
