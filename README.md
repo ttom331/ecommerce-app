@@ -33,6 +33,8 @@ Category page built to:
 
 - Display products in a subcategory using Eloquent relationships
 
+
+
 🚧 Features In Progress / Upcoming
 🎨 Product Variants
  - Associate stock levels with each color variant of a product
