@@ -1,62 +1,62 @@
 
  Features Implemented
 🔐 Authentication
-Custom user signup and login system (no scaffolding).
+- Custom user signup and login system (no scaffolding).
 
-Role-based access control using pivot table:
+- Role-based access control using pivot table:
 
-Users ↔️ Roles (Admin, Customer)
+- Users ↔️ Roles (Admin, Customer)
 
 🗃️ Database & Relationships
-Database migrations created for:
+- Database migrations created for:
 
-Products, Colors, Categories, Subcategories, Roles
+- Products, Colors, Categories, Subcategories, Roles
 
-Pivot tables for many-to-many relationships:
+- Pivot tables for many-to-many relationships:
 
-Products ↔️ Colors
+- Products ↔️ Colors
 
-Users ↔️ Roles
+- Users ↔️ Roles
 
 One-to-many & nested relationships:
 
-Categories → Subcategories
+- Categories → Subcategories
 
-Products → Categories
+- Products → Categories
 
 📦 Product Management
 Category page built to:
 
-View all products under a selected category
+- View all products under a selected category
 
-Search through categories and subcategories
+- Search through categories and subcategories
 
-Display products in a subcategory using Eloquent relationships
+- Display products in a subcategory using Eloquent relationships
 
 🚧 Features In Progress / Upcoming
 🎨 Product Variants
-Associate stock levels with each color variant of a product
+ - Associate stock levels with each color variant of a product
 
 🛒 Shopping Basket
 Allow users to:
 
-Add products (with selected color) to basket
+- Add products (with selected color) to basket
 
-View and update cart items
+- View and update cart items
 
 💳 Payment Integration
-Integrate Stripe API to:
+- Integrate Stripe API to:
 
-Handle secure checkout
+- Handle secure checkout
 
-Process and store orders
+- Process and store orders
 
 🛠️ Admin Panel
 Admin dashboard to:
 
-Manage products, categories, subcategories, colors, and stock
+- Manage products, categories, subcategories, colors, and stock
 
-View customer orders and payment statuses
+- View customer orders and payment statuses
 
 
 
