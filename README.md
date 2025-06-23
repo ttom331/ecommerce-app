@@ -1,7 +1,55 @@
+23/06/25
+
+Features Implemented
+
+Basket for guest users only currently.
+- Users are able to add, remove and adjust the quantity of items in the basket.
+- Some products have different colors and each color has different stock. This was successfull by creating a color and a color_product table. Relationships were created in the model to allow products with different colors to have different stocks. Stock without colors just have their own stock attribute. 
+- First time using ajax request for changing the quantity, doesn't require page reload. Basket is still being worked on.
+- Integrated Stripe API for adding checkout for guest users only currently. Users can purchase the orders with stripe api integration and use webhooks events (checkout.session.completed) to store orders to database.
+- Had to create 3 new Order tables and their relationships. (orders, order_addresses and order_items)
+
+
+🛒 E-Commerce Portfolio Project
+Date: 23/06/25
+
+Features Implemented
+🧺 Basket and Checkout Functionality (Guest Users Only — In Progress)
+    - Users can add, remove, and adjust item quantities in the basket.
+    - AJAX-based quantity updates (no page reload required), First time using ajax, still learning this.
+    -Products with color variations are managed via:
+        -colors and color_product tables.
+        -Each color has its own stock count.
+        -Products without colors retain a single stock attribute.
+    -Basket integrates with Stripe API for secure Checkout currently only for guest purchases only.
+    -Stripe webhooks (checkout.session.completed) store completed orders in the database.
+
+🧾 Orders System
+Implemented 3 related tables:
+    -orders
+    -order_addresses
+    -order_items
+    -Captures and stores guest order details after successful payment. Will work on authentication users at a later date.
+
+
+Upcoming and Work in Progress:
+🛠️ Admin Panel
+Admin dashboard to:
+    - Manage products, categories, subcategories, colors, and stock
+    - View customer orders and payment statuses
+
+🧺 Basket and Checkout Functionality (For authenticated users)
+
+Allow users to view their orders and order items. 
+
+Continue to develop stock validation before user checkout
+
+
+Date: 23/06/25
 
  Features Implemented
 🔐 Authentication
-- Custom user signup and login system (no scaffolding).
+- Custom user signup and login system.
 
 - Role-based access control using pivot table:
 
@@ -33,25 +81,6 @@ Category page built to:
 
 - Display products in a subcategory using Eloquent relationships
 
-
-
-🚧 Features In Progress / Upcoming
-🎨 Product Variants
- - Associate stock levels with each color variant of a product
-
-🛒 Shopping Basket
-Allow users to:
-
-- Add products (with selected color) to basket
-
-- View and update cart items
-
-💳 Payment Integration
-- Integrate Stripe API to:
-
-- Handle secure checkout
-
-- Process and store orders
 
 🛠️ Admin Panel
 Admin dashboard to:
