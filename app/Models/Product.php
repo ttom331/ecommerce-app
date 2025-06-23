@@ -18,7 +18,7 @@ class Product extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
-    public function color(){
-        return $this->belongsToMany(Color::class);
+    public function colors(){
+        return $this->belongsToMany(Color::class)->withPivot('stock');
     }
 }

@@ -1,9 +1,9 @@
-@props(['name', 'label'])
+@props(['name', 'label' => '', 'type' => 'text'])
 
 @php
 
     $defaults = [
-        'type' => 'text', 
+        'type' => $type, 
         'id' => $name,
         'name' => $name, 
         'class' => "rounded border-1 border-gray-400 w-full px-5 py-4",

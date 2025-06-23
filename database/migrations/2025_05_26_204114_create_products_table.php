@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', total: 8, places: 2);
             $table->decimal('dealPrice', total: 8, places: 2)->nullable();
-            $table->string('description');
+            $table->longText('description');
             $table->string('image');
             $table->string('image2');
+            $table->integer('stock');
             $table->boolean('featured')->default(false);
             $table->timestamps();
         });

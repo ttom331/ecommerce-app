@@ -24,10 +24,11 @@ class ProductFactory extends Factory
             'Sideboard', 'TV stand']),    
             'category_id' => Category::factory(),        
             'price' => fake()->randomFloat(2, 50, 1000),
-            'description' => fake()->sentence(15),
+            'description' => fake()->sentence(100),
             'image' => 'http://ecommerce-app.test/storage/images/products/sofa1.png',
             'image2' => 'http://ecommerce-app.test/storage/images/products/sofa2.jpg',
             'featured' => fake()->boolean(50),
+            'stock' => fake()->numberBetween(0, 30),
         ];
     }
 }

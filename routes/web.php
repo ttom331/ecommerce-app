@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\GuestBasketController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisteredUserController;
@@ -20,6 +22,15 @@ Route::middleware('guest')->group(function (){ //only for guests
 
     Route::get('/login', [SessionController::class, 'create'])->name('login');
     Route::post('/login', [SessionController::class, 'store']);
+
+    Route::post('/basket', [GuestBasketController::class, 'store']);
+    Route::get('/basket', [GuestBasketController::class, 'show']);
+    Route::delete('/basket', [GuestBasketController::class, 'remove']);
+    Route::patch('/basket', [GuestBasketController::class, 'update']);
+
+    Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/success', [CheckoutController::class, 'success'])->name('success');
+    Route::post('/webhook', [CheckoutController::class, 'webhook'])->name('webhook');
 });
 
 Route::delete('/logout', [SessionController::class, 'destroy'])->middleware('auth');

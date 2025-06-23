@@ -9,6 +9,6 @@
         @endif
         <a href="{{ route('product.show', ['product' => $product->id]) }}"><p class="text-xl font-black text-[#4e4e4e] cursor-pointer group-hover:underline transition-all duration-300">{{ $product->name }}</p></a>
         <p class="text-2xs font-extrabold hidden md:block h-15 md:h-15">{{ $product->description }}</p>
-        <button class="opacity-0 group-hover:opacity-100 border-1 border-[#929292] w-full text-xs text-white font-black mb-4 py-5 bg-[#00a896] hover:py-6 transition-all duration-400">Add to basket</button>
+        <a href="{{ route('product.show', ['product' => $product->id]) }}"><button class="opacity-0 group-hover:opacity-100 border-1 border-[#929292] w-full text-xs text-white font-black mb-4 py-5 bg-[#00a896] hover:py-6 transition-all duration-400">Shop Now</button></a>
     </div>   
 </div>
