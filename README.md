@@ -5,6 +5,9 @@ Features Implemented
 Added notifications for purchased orders.
 - Users recieve a notifcation via email when the successfully purchase an order, this was done making a notification and using mailtrap.
 
+Added a lookbook
+- Added a lookbook, took inspiration from Ikea, it showcases different designs involving the furniture that customers can purchase on the website  
+
 23/06/25
 
 Features Implemented
