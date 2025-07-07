@@ -1,3 +1,10 @@
+07/07/25 
+
+Features Implemented
+
+Added notifications for purchased orders.
+- Users recieve a notifcation via email when the successfully purchase an order, this was done making a notification and using mailtrap.
+
 23/06/25
 
 Features Implemented
