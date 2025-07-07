@@ -29,7 +29,7 @@
                     <div class="flex flex-col">
                         <h1 class="text-sm uppercase">{{ $item['product']->name }}</h1>
                         @if ($item['color'])
-                        <p class="text-xs">Color: {{ $item['color']->id }}</p> <!--$item['color']->pivot->stock -->
+                        <p class="text-xs">Color: {{ $item['color']->name }}</p> <!--$item['color']->pivot->stock -->
                         @endif
                     </div>
                     <div class="flex text-m md:text-xs font-bold">

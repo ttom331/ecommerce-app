@@ -34,6 +34,7 @@ class CheckoutController extends Controller
                         'name' => $product->name,
                         'metadata' => [ //had to add some meta data so i can store the product id in the order items in future 
                             'product_id' => $product->id,
+                            'color' => $item['color'],
                         ]
                     ],
                     'unit_amount' => (int) ($item['price'] * 100),
