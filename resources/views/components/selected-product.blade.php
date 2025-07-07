@@ -4,7 +4,7 @@
     <div class="md:w-2/3 flex justify-center mt-5">
         <img class="justify-center items-center w-full h-full pt-4 py-10" src='{{$product->image2}}' />
     </div>
-    <div class="md:w-1/3 mt-5 md:mt-10 px-4  uppercase ">
+    <div class="md:w-1/3 mt-5 md:mt-10 px-4 ">
         <form method="POST" action="/basket" class="space-y-3">
             @csrf
             @method('POST')
@@ -12,17 +12,22 @@
             <!-- Reviews -->
             <p class="text-2xs">(0 reviews)</p>
             <!-- Product Name -->
-            <h1 class="text-2xl">{{ $product->name }}</h1>
+            <h1 class="text-3xl">{{ $product->name }}</h1>
             <x-forms.input name="product_id" type="hidden" value="{{ $product->id }}" />
             <!-- Catrgory -->
-            <p class="text-[#5f5f5f] text-xs">{{ $product->category->name }}</p>
+            <p class="text-[#5f5f5f] text-xs">{{ ucfirst($product->category->name) }}</p>
             <!-- Price -->
-            <p class="text-m font-extrabold {{ $product->dealPrice ? ' text-red-600 line-through' : '' }}">£{{ $product->price }}</p>
-            <x-forms.input name="price" type="hidden" value="{{ $product->price }}" />
-            @if ($product->dealPrice)
-            <p class="text-m font-extrabold text-center">£{{ $product->dealPrice }}</p>
-            <x-forms.input name="deal_price" type="hidden" value="{{ $product->dealPrice }}" />
-            @endif
+
+            <div class="flex">
+                <span class="text-m font-extrabold {{ $product->dealPrice ? ' text-red-600 line-through' : '' }}">£</span>
+                <span class="text-2xl font-extrabold {{ $product->dealPrice ? ' text-red-600 line-through' : '' }}">{{ $product->price }}</span>
+                <x-forms.input name="price" type="hidden" value="{{ $product->price }}" />
+                @if ($product->dealPrice)
+                <span class="text-m font-extraboldr">£</span>
+                <span class="text-4xl font-extraboldr">{{ $product->dealPrice }}</span>
+                <x-forms.input name="deal_price" type="hidden" value="{{ $product->dealPrice }}" />
+                @endif
+            </div>
             @php
             $stock = $product->stock;
             @endphp
@@ -65,21 +70,21 @@
                 @endif
 
                 <!-- Hidden if it has prooducts colors, only shows flex once slection and if stock === 0 it does not diplsay either-->
-                <div class="space-x-5 {{ count($product->colors) || $product->stock === 0  ? 'hidden' : 'flex' }}" id="quantity-section">
-                    <div class="flex items-center max-w-[8rem]">
-                        <button type="button" id="decrementButton" class="bg-[#F8F8F8] border border-gray-300 py-3 px-4 h-10 text-center">
+                <div class="space-x-5  {{ count($product->colors) || $product->stock === 0  ? 'hidden' : 'flex' }}" id="quantity-section">
+                    <div class="flex items-center max-w-[8rem] border-gray-300 border-1 ">
+                        <button type="button" id="decrementButton" class="bg-[#F8F8F8] py-3 px-4 h-10 text-center">
                             <svg class="w-2 h-3 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                             </svg>
                         </button>
-                        <input type="number" id="quantity" name="quantity" class="bg-[#F8F8F8] border-x-0 border-y border-gray-300 h-10 text-center text-gray-900 text-sm block w-9 py-1.5 pl-1" min="1" max="{{ $stock }}" value="1" readonly required />
-                        <button type="button" id="incrementButton" class="bg-[#F8F8F8] border border-gray-300 py-3 px-4 h-10 text-center">
+                        <input type="number" id="quantity" name="quantity" class="bg-[#F8F8F8] h-10 text-center text-gray-900 text-sm block w-9 py-1.5 pl-1" min="1" max="{{ $stock }}" value="1" readonly required />
+                        <button type="button" id="incrementButton" class="bg-[#F8F8F8]  py-3 px-4 h-10 text-center">
                             <svg class="w-2 h-3 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                             </svg>
                         </button>
                     </div>
-                    <x-button id="addToBasketButton" class="w-full py-2 text-xs font-bold {{ (count($product->colors) && !$product->colors->first()?->pivot->stock) ? 'hidden' : '' }}">ADD TO BAG</x-button>
+                    <x-button id="addToBasketButton" class="w-full py-2 text-sm font-bold rounded-xl {{ (count($product->colors) && !$product->colors->first()?->pivot->stock) ? 'hidden' : '' }}">Add to basket</x-button>
                 </div>
                 @if (session('success'))
                 <x-alert class="text-green-600">{{ session('success') }}</x-alert>

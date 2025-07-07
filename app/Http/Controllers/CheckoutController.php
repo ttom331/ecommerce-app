@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\GuestCheckoutSuccess;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderAddress;
 use App\Models\OrderItem;
 use App\Models\Product;
+use App\Notifications\OrderPurchased;
 use Carbon\Traits\Timestamp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -34,7 +37,7 @@ class CheckoutController extends Controller
                         'name' => $product->name,
                         'metadata' => [ //had to add some meta data so i can store the product id in the order items in future 
                             'product_id' => $product->id,
-                            'color' => $item['color'],
+                            'color' => $item['color'] ?? null,
                         ]
                     ],
                     'unit_amount' => (int) ($item['price'] * 100),
@@ -108,7 +111,7 @@ class CheckoutController extends Controller
 
                 OrderAddress::create([ //order addresses is created
                     'order_id' => $order->id, //using id from the order just created
-                    'shipping_name' => $session->customer_details->name ?? 'N/A', 
+                    'shipping_name' => $session->customer_details->name ?? 'N/A',
                     'shipping_address1' => $session->customer_details->address->line1 ?? '',
                     'shipping_address2' => $session->customer_details->address->line2 ?? '',
                     'shipping_city' => $session->customer_details->address->city ?? '',
@@ -118,9 +121,9 @@ class CheckoutController extends Controller
 
                 $stripe = new \Stripe\StripeClient((config('stripe.sk')));
                 $lineItems = $stripe->checkout->sessions->allLineItems($session->id, []);
-                foreach ($lineItems->data as $item) { 
+                foreach ($lineItems->data as $item) {
                     $stripeProductId = $item->price->product; //retrieve stripe product id e.g. "product": "prod_SYGQiazGHaw2qG",
-                    $stripeProduct = $stripe->products->retrieve($stripeProductId); 
+                    $stripeProduct = $stripe->products->retrieve($stripeProductId);
                     $dbProductId = $stripeProduct->metadata->product_id ?? null; //this get the id from the db, that I added as meta data earlier
                     Log::info($dbProductId);
                     OrderItem::create([ //Creates the order item for each item in the checkout line items (basket)
@@ -134,6 +137,14 @@ class CheckoutController extends Controller
             } catch (\Exception $e) {
                 Log::error('Order creation failed: ' . $e->getMessage());
             }
+
+            //mail the order success
+            $email = $session->customer_details->email; // Guest's email address
+            $data = [
+                'order_id' => $order->id,
+                'order_items' =>$order->items,
+            ];
+            Mail::to($email)->queue(new GuestCheckoutSuccess($data));
         }
 
         return response('Webhook received', 200);

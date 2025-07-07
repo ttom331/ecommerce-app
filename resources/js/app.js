@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Example: update basket total
+                        // Example: update basket total, need to do the subtotal.
                         console.log('guestBasket:', data.guestBasket);
 
                         Object.values(data.guestBasket).forEach(item => updateGuestBasketUI(item));

@@ -22,7 +22,7 @@
         <hr class="border-gray-200">
         <div class="quantity-section py-2 flex space-x-3 px-3" data-product-id="{{ $item['product']->id }}" data-color-id="{{ $item['color'] ? $item['color']->id : '' }}">
             <div>
-                <img class="p-3 w-30 h-25" src="{{  $item['product']->image}}" />
+                <img class="p-3 w-30 h-25" src='{{asset("images/products/{$item['product']->image}") }}' />
             </div>
             <div class="flex flex-col flex-1">
                 <div class="py-3 flex justify-between items-center">
@@ -85,7 +85,7 @@
         </div>
         <x-forms.form-no-styling method="POST" action="/checkout">
             <div class="px-3 mt-2">
-                <x-button class="uppercase font-black py-2 w-full">Checkout</x-button>
+                <x-button class="rounded-4xl font-black py-2 w-full">Continue to checkout</x-button>
             </div>
         </x-forms.form-no-styling>
     </div>

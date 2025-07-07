@@ -11,6 +11,6 @@ class Color extends Model
     use HasFactory;
 
     public function products(){
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

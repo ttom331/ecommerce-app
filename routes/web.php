@@ -33,4 +33,8 @@ Route::middleware('guest')->group(function (){ //only for guests
     Route::post('/webhook', [CheckoutController::class, 'webhook'])->name('webhook');
 });
 
+Route::middleware('auth')->group(function (){
+
+});
+
 Route::delete('/logout', [SessionController::class, 'destroy'])->middleware('auth');

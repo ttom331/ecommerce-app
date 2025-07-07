@@ -13,7 +13,7 @@
             <h1 class="font-extrabold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
                 {{ $text }}
             </h1>
-            <x-button class="py-1 px-1 sm:py-2 sm:px-2 md:px-8 mt-1 md:mt-4 text-4xs sm:text-1xs md:text-xs text-[#4e4e4e] font-bold uppercase">{{$button}}</x-button>
+            <x-button class="py-1 px-1 sm:py-2 sm:px-2 md:px-8 mt-1 md:mt-4 text-4xs sm:text-1xs md:text-xs text-[#4e4e4e] font-bold uppercase rounded-4xl">{{$button}}</x-button>
         </div>
     </div>
 </div>

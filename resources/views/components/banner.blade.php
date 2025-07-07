@@ -12,7 +12,7 @@
       <h1 class="font-extrabold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
         Craft your dream home
       </h1>
-      <x-button class="mt-6 py-3 px-6 text-sm md:text-base font-bold uppercase">
+      <x-button class="rounded-4xl mt-6 py-3 px-6 text-sm md:text-base font-bold uppercase">
         Shop Now
       </x-button>
     </div>

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Questrial&display=swap" rel="stylesheet">
     <title>InSofa</title>
     @vite('resources/css/app.css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,7 +29,7 @@
             </div>
 
             <div>
-                <div class="space-x-10 hidden md:flex text-sm uppercase font-extrabold">
+                <div class="space-x-10 hidden md:flex text-sm  font-extrabold">
                     <a href="/">Furniture</a>
                     <a href="/">Shop</a>
                     <a href="/">About Us</a>
@@ -97,12 +97,12 @@
         </ul>
     </div>
     @guest
-    <x-guest-basket/>
+    <x-guest-basket />
     @endguest
     <main class="pt-15 px-2">
         {{ $slot }}
     </main>
-@vite('resources/js/app.js')
+    @vite('resources/js/app.js')
 </body>
 
 </html>

@@ -11,19 +11,19 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'order_email',
+        'guest_email',
         'total_amount',
     ];
 
     public function user(){
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function address(){
-        $this->belongsTo(OrderAddress::class);
+        return $this->belongsTo(OrderAddress::class);
     }
 
     public function items(){
-        $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 }

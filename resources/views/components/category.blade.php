@@ -1,5 +1,5 @@
 <div class="">
-    <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
         @foreach ($categories as $category)
             <a href="{{ route('category.show', ['name' => $category->name]) }}">
                 <div class="bg-[#E6E3E4] cursor-pointer h-50 lg:h-70 " aria-label="{{ $category->name }} ">

@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Lookbook;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
+        $lookbook = Lookbook::with(['items'])->latest()->take(6)->get();
         $products = Product::with(['category'])->where('featured', true)->latest()->take(8)->get(); //simplePaginate(8); //need to add checks, error if there are no products with or without feautred.
         $category = Category::get();
         return view('index', [
             'featuredProducts' => $products,
             'categories' => $category,
+            'lookbooks' => $lookbook,
         ]);
     }
 }
